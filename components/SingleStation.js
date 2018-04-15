@@ -1,5 +1,6 @@
 import React from 'react';
 import { 
+  ActivityIndicator,
   Text,
   View
 } from 'react-native'
@@ -49,9 +50,17 @@ export default class SingleStation extends React.Component {
       <View>
         <Text>{ name }</Text>
         <Text>Platform 1</Text>
-        <TrainList trains={platform1Trains} />
+        {
+          this.state.loading ? <ActivityIndicator /> : (
+            <TrainList trains={platform1Trains} />
+          )
+        }
         <Text>Platform 2</Text>
-        <TrainList trains={platform2Trains} />
+        {
+          this.state.loading ? <ActivityIndicator /> : (
+            <TrainList trains={platform2Trains} />
+          )
+        }
       </View>
     );
   }
