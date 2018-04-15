@@ -1,13 +1,13 @@
 import React from 'react'
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
  
-const TabBarItem = ({ border, title, lineCode, selected, setLine, line }) => (
+const TabBarItem = ({ title, lineCode, selected, setLine, line }) => (
   <TouchableHighlight
     underlayColor='#efefef'
     onPress={setLine}
     style={[
       styles.item, selected ? styles.selected : null,
-      border ? styles.border : null,
+      title !== 'All' ? styles.border : null,
       line === lineCode ? styles.selected : null ]}>
     <Text style={[ styles.itemText, line === lineCode ? styles.bold : null ]}>
       {title}
