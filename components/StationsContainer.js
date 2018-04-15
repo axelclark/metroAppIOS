@@ -38,8 +38,9 @@ export default class StationsContainer extends React.Component {
 
   render() {
     const stations = this.getStationsByLine(stationsData.Stations, this.props.line)
+    const { navigate } = this.props 
     return (
-      <StationList stations={stations} />
+      <StationList stations={stations} navigate={navigate} />
     );
   }
 }

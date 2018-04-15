@@ -7,14 +7,34 @@ import {
   View 
 } from 'react-native';
 
-const renderStation = ({ item, index }) => {
-  return (
-    <TouchableHighlight
-      style={[styles.item, { borderTopWidth: index === 0 ? 1 : null }]}
-    >
-      <Text style={styles.text}>{item.Name}</Text>
-    </TouchableHighlight>
-  )
+class StationList extends React.PureComponent {
+
+  onPressItem = (item) => { 
+    this.props.navigate('StationStatus', item)
+  };
+
+  renderStation = ({ item, index }) => {
+    return (
+      <TouchableHighlight
+        onPress={()=>{this.onPressItem(item)}}
+        style={[styles.item, { borderTopWidth: index === 0 ? 1 : null }]}
+      >
+        <Text style={styles.text}>{item.Name}</Text>
+      </TouchableHighlight>
+    )
+  }
+
+  render() {
+    const { stations, navigate } = this.props
+    return (
+      <FlatList
+        data={stations}
+        keyExtractor={(item) => item.Code}
+        renderItem={this.renderStation}
+      />
+    )
+
+  }
 }
 
 const styles = StyleSheet.create({
@@ -29,13 +49,5 @@ const styles = StyleSheet.create({
     fontSize: 18
   }
 });
-
-const StationList = ({ stations }) => (
-  <FlatList
-    data={stations}
-    keyExtractor={(item) => item.Code}
-    renderItem={renderStation}
-  />
-)
 
 export default StationList
