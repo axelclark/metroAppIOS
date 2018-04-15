@@ -1,6 +1,7 @@
 import React from 'react';
 import { 
   ActivityIndicator,
+  StyleSheet,
   Text,
   View
 } from 'react-native'
@@ -47,22 +48,53 @@ export default class SingleStation extends React.Component {
     const platform1Trains = this.getStationTrainsByGroup(trains, stationCode, "1")
     const platform2Trains = this.getStationTrainsByGroup(trains, stationCode, "2")
     return (
-      <View>
-        <Text>{ name }</Text>
-        <Text>Platform 1</Text>
-        {
-          this.state.loading ? <ActivityIndicator /> : (
-            <TrainList trains={platform1Trains} />
-          )
-        }
-        <Text>Platform 2</Text>
-        {
-          this.state.loading ? <ActivityIndicator /> : (
-            <TrainList trains={platform2Trains} />
-          )
-        }
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.headerText}>{ name }</Text>
+        </View>
+        <View style={styles.platformContainer}>
+          <Text style={styles.platformText}>Platform 1</Text>
+          {
+            this.state.loading ? <ActivityIndicator /> : (
+              <TrainList trains={platform1Trains} />
+            )
+          }
+        </View>
+        <View style={styles.platformContainer}>
+          <Text style={styles.platformText}>Platform 2</Text>
+          {
+            this.state.loading ? <ActivityIndicator /> : (
+              <TrainList trains={platform2Trains} />
+            )
+          }
+        </View>
       </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    padding: 10
+  },
+  headerText: {
+    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#171f3d',
+    padding: 20,
+    paddingBottom: 10
+  },
+  platformContainer: {
+    padding: 20
+  },
+  platformText: {
+    fontSize: 18,
+    color: '#171f3d',
+    fontWeight: 'bold'
+  }
+});
