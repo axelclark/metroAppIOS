@@ -3,7 +3,7 @@ import {
   StyleSheet, 
   View 
 } from 'react-native'
-import StationsContainer from './StationsContainer'
+import FilteredStations from './FilteredStations'
 import TabBar from './TabBar'
 
 export default class Home extends React.Component {
@@ -28,7 +28,7 @@ export default class Home extends React.Component {
     const { line } = this.state
     return (
       <View style={styles.container}>
-        <StationsContainer line={line} navigate={this.navigate}/>
+        <FilteredStations line={line} navigate={this.navigate}/>
         <TabBar line={line} setLine={this.setLine} />
       </View>
     );

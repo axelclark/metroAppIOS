@@ -5,7 +5,7 @@ import {
 import stationsData from '../data/stations'
 import StationList from './StationList'
 
-export default class StationsContainer extends React.Component {
+export default class FilteredStations extends React.Component {
 
   getStationsByLine = (stations, line) => {
     const filteredStations = this.filterStationsByLine(stations, line);

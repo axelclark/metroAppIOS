@@ -1,15 +1,15 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation'
 import Home from './components/Home'
-import StationStatus from './components/StationStatus'
+import SingleStation from './components/SingleStation'
 
 const App = StackNavigator(
   {
     Home: {
       screen: Home
     },
-    StationStatus: {
-      screen: StationStatus
+    SingleStation: {
+      screen: SingleStation
     }
   },
   {

@@ -7,10 +7,10 @@ import {
   View 
 } from 'react-native';
 
-class StationList extends React.PureComponent {
+export default class StationList extends React.PureComponent {
 
   onPressItem = (item) => { 
-    this.props.navigate('StationStatus', item)
+    this.props.navigate('SingleStation', item)
   };
 
   renderStation = ({ item, index }) => {
@@ -33,7 +33,6 @@ class StationList extends React.PureComponent {
         renderItem={this.renderStation}
       />
     )
-
   }
 }
 
@@ -49,5 +48,3 @@ const styles = StyleSheet.create({
     fontSize: 18
   }
 });
-
-export default StationList
