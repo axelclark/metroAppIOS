@@ -19,6 +19,7 @@ const TabBar = ({ setLine, line }) => (
         line={line} 
         title={lineData.title}
         lineCode={lineData.code}
+        key={lineData.code}
         setLine={() => setLine(lineData.code)} 
       />
     )}
