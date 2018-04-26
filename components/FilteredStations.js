@@ -6,10 +6,34 @@ import stationsData from '../data/stations'
 import StationList from './StationList'
 
 export default class FilteredStations extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      stations: []
+    }
+    this.toggleFavoriteStation = this.toggleFavoriteStation.bind(this)
+  }
+
+  componentDidMount() {
+    const stations = this.formattedStations(stationsData)
+    this.setState({ stations })
+  }
+
+  addFavoriteKey = (stationsList) => {
+    return stationsList.map(station => 
+      Object.assign({}, station, {Favorite: false})
+    )
+  }
+
+  formattedStations = (stations) => {
+    const stationsList = stations.Stations
+    return this.addFavoriteKey(stationsList)
+  }
+
 
   getStationsByLine = (stations, line) => {
     const filteredStations = this.filterStationsByLine(stations, line);
-    return this.sortStationsByName(filteredStations);
+    return this.sortStations(filteredStations);
   }
 
   filterStationsByLine = (stations, line) => {
@@ -25,6 +49,11 @@ export default class FilteredStations extends React.Component {
     }
   }
 
+  sortStations = (stations) => {
+    const sortedByName = this.sortStationsByName(stations)
+    return this.sortStationsByFav(sortedByName)
+  }
+
   sortStationsByName = (stations) => { 
     return stations.sort((stationA, stationB) => 
       this.compareStationNames(stationA, stationB))
@@ -36,11 +65,50 @@ export default class FilteredStations extends React.Component {
     return a < b ? -1 : a > b ? 1 : 0
   }
 
+  sortStationsByFav = (stations) => { 
+    return stations.sort((stationA, stationB) => 
+      this.compareStationFavs(stationA, stationB))
+  }
+
+  compareStationFavs = (stationA, stationB) => {
+    const a = stationA.Favorite
+    const b = stationB.Favorite
+    return a > b ? -1 : a > b ? 1 : 0
+  }
+
+  filterFavoriteStations = (stations) => {
+    return stations.filter(station => 
+      station.Favorite === true
+    )
+  }
+
+  getFavoriteStations = (stations) => {
+    const favoriteStations = this.filterFavoriteStations(stations);
+    return this.sortStationsByName(favoriteStations);
+  }
+
+  toggleFavoriteStation = (favoriteStation) => {
+    const stations = this.state.stations.map(station => {
+      if (station.Code === favoriteStation.Code) {
+        return Object.assign({}, station, {
+          Favorite: !station.Favorite
+        })
+      } else {
+        return station
+      }
+    })
+    this.setState({ stations })
+  }
+
   render() {
-    const stations = this.getStationsByLine(stationsData.Stations, this.props.line)
+    const stations = this.getStationsByLine(this.state.stations, this.props.line)
     const { navigate } = this.props 
     return (
-      <StationList stations={stations} navigate={navigate} />
+      <StationList 
+        stations={stations} 
+        navigate={navigate} 
+        onPressIcon={this.toggleFavoriteStation}
+      />
     );
   }
 }
