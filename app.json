@@ -1,5 +1,16 @@
 {
-  "expo": {
-    "sdkVersion": "26.0.0"
-  }
+	"expo": {
+		"name": "MetroApp",
+		"sdkVersion": "26.0.0",
+		"icon": "./metroappicon.png",
+		"description": "Simple app to access WMATA train status",
+		"version": "0.1.0",
+		"orientation": "portrait",
+		"ios": {
+			"bundleIdentifier": "com.axelclark2.metroapp"
+		},
+		"android": {
+			"package": "com.axelclark2.metroapp"
+		}
+	}
 }
