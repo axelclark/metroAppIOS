@@ -1,5 +1,6 @@
 import React from 'react';
 import { 
+  AsyncStorage,
   View 
 } from 'react-native';
 import stationsData from '../data/stations'
@@ -15,8 +16,29 @@ export default class FilteredStations extends React.Component {
   }
 
   componentDidMount() {
-    const stations = this.formattedStations(stationsData)
-    this.setState({ stations })
+    this.getStations()
+  }
+
+  async getStations() {
+    try {
+      const persistedStations = await AsyncStorage.getItem('MetroApp:stations');
+      if (persistedStations !== null) {
+        this.setState({ stations: JSON.parse(persistedStations) });
+      } else {
+        const formattedStations = this.formattedStations(stationsData) 
+        this.setState({ stations: formattedStations})
+      }
+    } catch (error) {
+      console.log("Error retrieving data" + error);
+    }
+  }
+
+  async saveStations(stations) {
+    try {
+      await AsyncStorage.setItem('MetroApp:stations', JSON.stringify(stations));
+    } catch (error) {
+      console.log("Error saving data" + error);
+    }
   }
 
   addFavoriteKey = (stationsList) => {
@@ -30,10 +52,13 @@ export default class FilteredStations extends React.Component {
     return this.addFavoriteKey(stationsList)
   }
 
-
-  getStationsByLine = (stations, line) => {
-    const filteredStations = this.filterStationsByLine(stations, line);
-    return this.sortStations(filteredStations);
+  getStationsByLine = (allStations, line) => {
+    const filteredStations = this.filterStationsByLine(allStations, line)
+    const sortedByName = this.sortStationsByName(filteredStations)
+    const favorites = this.filterFavorites(sortedByName)
+    const regulars = this.rejectFavorites(sortedByName)
+    const stations = [ ...favorites, ...regulars ]
+    return stations;
   }
 
   filterStationsByLine = (stations, line) => {
@@ -49,11 +74,6 @@ export default class FilteredStations extends React.Component {
     }
   }
 
-  sortStations = (stations) => {
-    const sortedByName = this.sortStationsByName(stations)
-    return this.sortStationsByFav(sortedByName)
-  }
-
   sortStationsByName = (stations) => { 
     return stations.sort((stationA, stationB) => 
       this.compareStationNames(stationA, stationB))
@@ -65,26 +85,16 @@ export default class FilteredStations extends React.Component {
     return a < b ? -1 : a > b ? 1 : 0
   }
 
-  sortStationsByFav = (stations) => { 
-    return stations.sort((stationA, stationB) => 
-      this.compareStationFavs(stationA, stationB))
-  }
-
-  compareStationFavs = (stationA, stationB) => {
-    const a = stationA.Favorite
-    const b = stationB.Favorite
-    return a > b ? -1 : a > b ? 1 : 0
-  }
-
-  filterFavoriteStations = (stations) => {
+  filterFavorites = (stations) => {
     return stations.filter(station => 
       station.Favorite === true
     )
   }
 
-  getFavoriteStations = (stations) => {
-    const favoriteStations = this.filterFavoriteStations(stations);
-    return this.sortStationsByName(favoriteStations);
+  rejectFavorites = (stations) => {
+    return stations.filter(station => 
+      station.Favorite === false
+    )
   }
 
   toggleFavoriteStation = (favoriteStation) => {
@@ -97,6 +107,7 @@ export default class FilteredStations extends React.Component {
         return station
       }
     })
+    this.saveStations(stations)
     this.setState({ stations })
   }
 
