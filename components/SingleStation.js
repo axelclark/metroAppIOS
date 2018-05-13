@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   ActivityIndicator,
   StyleSheet,
   Text,
@@ -27,7 +27,7 @@ export default class SingleStation extends React.Component {
 
   getStationTrainsByGroup = (trains, stationCode, group) => {
     const stationTrains = this.filterTrainsByStation(
-      trains, 
+      trains,
       stationCode
     )
     return this.filterTrainsByGroup(stationTrains, group)

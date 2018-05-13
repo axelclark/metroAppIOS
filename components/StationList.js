@@ -1,15 +1,15 @@
 import React from 'react';
-import { 
+import {
   FlatList,
-  StyleSheet, 
+  StyleSheet,
   TouchableHighlight,
-  Text, 
-  View 
+  Text,
+  View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class StationList extends React.PureComponent {
-  onPressItem = (item) => { 
+  onPressItem = (item) => {
     this.props.navigate('SingleStation', item)
   };
 
@@ -22,11 +22,11 @@ export default class StationList extends React.PureComponent {
         >
           <Text style={styles.text}>{item.Name}</Text>
         </TouchableHighlight>
-        <Icon 
-          style={styles.icon} 
-          name={item.Favorite === true ? 'favorite' : 'favorite-border'} 
-          size={30} 
-          color="black" 
+        <Icon
+          style={styles.icon}
+          name={item.Favorite === true ? 'favorite' : 'favorite-border'}
+          size={30}
+          color="black"
           onPress={() => this.props.onPressIcon(item)}
         />
       </View>
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   item: {
-    padding: 20,
+    padding: 10,
+    paddingLeft: 20,
     justifyContent: 'center',
     flex: 6
   },

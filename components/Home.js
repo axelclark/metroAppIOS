@@ -1,10 +1,11 @@
 import React from 'react';
-import { 
-  StyleSheet, 
-  View 
+import {
+  StyleSheet,
+  View
 } from 'react-native'
 import FilteredStations from './FilteredStations'
 import TabBar from './TabBar'
+import MenuButton from './MenuButton'
 
 export default class Home extends React.Component {
   constructor() {
@@ -14,6 +15,10 @@ export default class Home extends React.Component {
     }
     this.setLine = this.setLine.bind(this)
   }
+
+  static navigationOptions = {
+    headerLeft: <MenuButton />
+  };
 
   setLine (line) {
     this.setState({ line })
