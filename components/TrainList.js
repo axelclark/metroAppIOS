@@ -1,33 +1,32 @@
 import React from 'react';
-import { 
+import {
   FlatList,
-  StyleSheet, 
-  Text, 
-  View 
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
 
-export default class TrainList extends React.PureComponent {
+const Train = ({ train }) => (
+  <View style={styles.container}>
+    <Text style={styles.text}>{train.Name}</Text>
+    <Text style={styles.text}>Destination: {train.DestinationName}</Text>
+    <Text style={styles.text}>Arrival in {train.Min} minutes</Text>
+  </View>
+)
 
-  renderTrain = ({ item, index }) => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{item.Name}</Text>
-        <Text style={styles.text}>Destination: {item.DestinationName}</Text>
-        <Text style={styles.text}>Arrival in {item.Min} minutes</Text>
-      </View>
-    )
-  }
+const TrainList = ({ trains }) => {
+  const renderTrains = trains.map((train) =>
+    <Train
+      key={train.DestinationCode + "-" + train.Min}
+      train={train}
+    />
+  )
 
-  render() {
-    const { trains } = this.props
-    return (
-      <FlatList
-        data={trains}
-        keyExtractor={(train) => train.DestinationCode + "-" + train.Min}
-        renderItem={this.renderTrain}
-      />
-    )
-  }
+  return (
+    <View>
+      {renderTrains}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -38,3 +37,5 @@ const styles = StyleSheet.create({
     fontSize: 18
   }
 });
+
+export default TrainList

@@ -1,20 +1,26 @@
 import React from 'react';
 import {
   ActivityIndicator,
+  RefreshControl,
+  ScrollView,
   StyleSheet,
   Text,
   View
 } from 'react-native'
-import trainsData from '../data/trains'
 import TrainList from './TrainList'
 
 export default class SingleStation extends React.Component {
   state = {
     trains: [],
-    loading: true
+    loading: true,
+    refreshing: false
   }
 
   componentDidMount() {
+    this.fetchTrains()
+  }
+
+  fetchTrains = () => {
     let myRequest = "https://api.wmata.com/StationPrediction.svc/json/GetPrediction/All"
     let myHeaders = new Headers();
     myHeaders.append("api_key", "a0363af8b5ab489bb2ce9479697aa70a");
@@ -23,6 +29,12 @@ export default class SingleStation extends React.Component {
       .then(res => res.json())
       .then(json => this.setState({ trains: json.Trains, loading: false }))
       .catch((err) => console.log('err:', err))
+  }
+
+  _onRefresh = () => {
+    this.setState({refreshing: true, loading: true});
+    this.fetchTrains()
+    this.setState({refreshing: false});
   }
 
   getStationTrainsByGroup = (trains, stationCode, group) => {
@@ -49,25 +61,35 @@ export default class SingleStation extends React.Component {
     const platform2Trains = this.getStationTrainsByGroup(trains, stationCode, "2")
     return (
       <View style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>{ name }</Text>
-        </View>
-        <View style={styles.platformContainer}>
-          <Text style={styles.platformText}>Platform 1</Text>
-          {
-            this.state.loading ? <ActivityIndicator /> : (
-              <TrainList trains={platform1Trains} />
-            )
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={() => this._onRefresh()}
+              title='Pull to Refresh'
+            />
           }
-        </View>
-        <View style={styles.platformContainer}>
-          <Text style={styles.platformText}>Platform 2</Text>
-          {
-            this.state.loading ? <ActivityIndicator /> : (
-              <TrainList trains={platform2Trains} />
-            )
-          }
-        </View>
+        >
+          <View>
+            <Text style={styles.headerText}>{ name }</Text>
+          </View>
+          <View style={styles.platformContainer}>
+            <Text style={styles.platformText}>Platform 1</Text>
+            {
+              this.state.loading ? <ActivityIndicator /> : (
+                <TrainList trains={platform1Trains} />
+              )
+            }
+          </View>
+          <View style={styles.platformContainer}>
+            <Text style={styles.platformText}>Platform 2</Text>
+            {
+              this.state.loading ? <ActivityIndicator /> : (
+                <TrainList trains={platform2Trains} />
+              )
+            }
+          </View>
+        </ScrollView>
       </View>
     );
   }
