@@ -7,6 +7,7 @@ import Home from './components/Home'
 import SingleStation from './components/SingleStation'
 import MetroMap from './components/MetroMap'
 import MapButton from './components/MapButton'
+import Support from './components/Support'
 import MenuButton from './components/MenuButton'
 import TrainButton from './components/TrainButton'
 
@@ -52,12 +53,34 @@ const MapStack = createStackNavigator(
   }
 )
 
+const SupportStack = createStackNavigator(
+  {
+    Support: {
+      screen: Support
+    }
+  },
+  {
+    initialRouteName: 'Support',
+    navigationOptions: {
+      headerTitle: 'Support',
+      headerBackTitle: 'Back',
+      headerTitleStyle: {
+        color: '#171f3d'
+      },
+      headerLeft: <MenuButton />,
+      headerRight: <TrainButton />
+    }
+  }
+)
 const App = createDrawerNavigator({
   Home: {
     screen: RootStack,
   },
   'Metro Map': {
     screen: MapStack,
+  },
+  Support: {
+    screen: SupportStack,
   },
 });
 
