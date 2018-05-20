@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { SearchBar } from 'react-native-elements'
 
 export default class StationList extends React.PureComponent {
   onPressItem = (item) => {
@@ -34,18 +35,46 @@ export default class StationList extends React.PureComponent {
   }
 
   render() {
-    const { stations, navigate } = this.props
+
+    const {
+      stations,
+      navigate,
+      handleOnChange,
+      handleOnClear,
+      value
+    } = this.props
+
     return (
-      <FlatList
-        data={stations}
-        keyExtractor={(item) => item.Code}
-        renderItem={this.renderStation}
-      />
+      <View style={styles.container}>
+        <SearchBar
+          clearIcon={{ color: 'gray' }}
+          searchIcon={{ size: 24 }}
+          onChangeText={handleOnChange}
+          onClear={handleOnClear}
+          placeholder='Type Here To Filter...'
+          containerStyle={styles.searchBarContainer}
+          inputStyle={{ backgroundColor: '#F5F5F5' }}
+          value={value}
+        />
+        <FlatList
+          data={stations}
+          keyExtractor={(item) => item.Code}
+          renderItem={this.renderStation}
+        />
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  searchBarContainer: {
+    backgroundColor: 'white',
+    borderTopColor: 'rgba(23, 31, 61, .2)',
+    borderBottomColor: 'rgba(23, 31, 61, .2)',
+  },
   stationContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -54,7 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   item: {
-    padding: 10,
+    padding: 15,
     paddingLeft: 20,
     justifyContent: 'center',
     flex: 6
@@ -65,6 +94,6 @@ const styles = StyleSheet.create({
   },
   icon: {
     alignSelf: 'center',
-    padding: 20,
+    padding: 15,
   }
 });

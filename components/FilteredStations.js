@@ -1,7 +1,7 @@
 import React from 'react';
-import { 
+import {
   AsyncStorage,
-  View 
+  View
 } from 'react-native';
 import stationsData from '../data/stations'
 import StationList from './StationList'
@@ -10,7 +10,8 @@ export default class FilteredStations extends React.Component {
   constructor() {
     super()
     this.state = {
-      stations: []
+      stations: [],
+      filterText: '',
     }
     this.toggleFavoriteStation = this.toggleFavoriteStation.bind(this)
   }
@@ -25,7 +26,7 @@ export default class FilteredStations extends React.Component {
       if (persistedStations !== null) {
         this.setState({ stations: JSON.parse(persistedStations) });
       } else {
-        const formattedStations = this.formattedStations(stationsData) 
+        const formattedStations = this.formattedStations(stationsData)
         this.setState({ stations: formattedStations})
       }
     } catch (error) {
@@ -42,7 +43,7 @@ export default class FilteredStations extends React.Component {
   }
 
   addFavoriteKey = (stationsList) => {
-    return stationsList.map(station => 
+    return stationsList.map(station =>
       Object.assign({}, station, {Favorite: false})
     )
   }
@@ -53,7 +54,8 @@ export default class FilteredStations extends React.Component {
   }
 
   getStationsByLine = (allStations, line) => {
-    const filteredStations = this.filterStationsByLine(allStations, line)
+    const filteredByInput = this.filterByInput(allStations, this.state.filterText)
+    const filteredStations = this.filterStationsByLine(filteredByInput, line)
     const sortedByName = this.sortStationsByName(filteredStations)
     const favorites = this.filterFavorites(sortedByName)
     const regulars = this.rejectFavorites(sortedByName)
@@ -61,12 +63,22 @@ export default class FilteredStations extends React.Component {
     return stations;
   }
 
+  filterByInput = (stations, text) => {
+    if (text !== "") {
+      return stations.filter(station =>
+        station.Name.toLowerCase().includes(text.toLowerCase())
+      )
+    } else {
+      return stations
+    }
+  }
+
   filterStationsByLine = (stations, line) => {
     switch (line) {
       case 'All':
         return stations
       default:
-        return stations.filter(station => 
+        return stations.filter(station =>
           line === station.LineCode1 ||
           line === station.LineCode2 ||
           line === station.LineCode3 ||
@@ -74,8 +86,8 @@ export default class FilteredStations extends React.Component {
     }
   }
 
-  sortStationsByName = (stations) => { 
-    return stations.sort((stationA, stationB) => 
+  sortStationsByName = (stations) => {
+    return stations.sort((stationA, stationB) =>
       this.compareStationNames(stationA, stationB))
   }
 
@@ -86,13 +98,13 @@ export default class FilteredStations extends React.Component {
   }
 
   filterFavorites = (stations) => {
-    return stations.filter(station => 
+    return stations.filter(station =>
       station.Favorite === true
     )
   }
 
   rejectFavorites = (stations) => {
-    return stations.filter(station => 
+    return stations.filter(station =>
       station.Favorite === false
     )
   }
@@ -113,12 +125,16 @@ export default class FilteredStations extends React.Component {
 
   render() {
     const stations = this.getStationsByLine(this.state.stations, this.props.line)
-    const { navigate } = this.props 
+    const { navigate } = this.props
+    const { filterText } = this.state
     return (
-      <StationList 
-        stations={stations} 
-        navigate={navigate} 
+      <StationList
+        stations={stations}
+        navigate={navigate}
         onPressIcon={this.toggleFavoriteStation}
+        handleOnChange={(filterText) => this.setState({ filterText })}
+        handleOnClear={() => this.setState({ filterText: '' })}
+        value={filterText}
       />
     );
   }
