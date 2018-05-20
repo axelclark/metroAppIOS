@@ -4,7 +4,7 @@
 		"sdkVersion": "26.0.0",
 		"icon": "./metroappicon.png",
 		"description": "Simple app to access WMATA train status",
-		"version": "0.2.0",
+		"version": "0.3.0",
 		"orientation": "portrait",
 		"ios": {
 			"bundleIdentifier": "com.axelclark2.metroapp"
