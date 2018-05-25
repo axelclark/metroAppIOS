@@ -2,7 +2,7 @@
 	"expo": {
 		"name": "MetroApp",
 		"sdkVersion": "26.0.0",
-		"icon": "./metroappicon.png",
+		"icon": "./metroAppIcon.png",
 		"description": "Simple app to access WMATA train status",
 		"version": "0.3.0",
 		"orientation": "portrait",
