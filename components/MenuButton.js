@@ -3,6 +3,7 @@ import {
   withNavigation
 } from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { COLOR_PRIMARY } from '../constants/styles'
 
 class MenuButton extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class MenuButton extends React.Component {
         onPress={() => this.props.navigation.toggleDrawer()}
         size={25}
         style={{ marginLeft: 15 }}
+        color={COLOR_PRIMARY}
       />
     )
   }

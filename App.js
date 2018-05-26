@@ -10,6 +10,7 @@ import MapButton from './components/MapButton'
 import Support from './components/Support'
 import MenuButton from './components/MenuButton'
 import TrainButton from './components/TrainButton'
+import { COLOR_PRIMARY } from './constants/styles'
 
 const RootStack = createStackNavigator(
   {
@@ -26,7 +27,7 @@ const RootStack = createStackNavigator(
       headerTitle: 'MetroApp',
       headerBackTitle: 'Back',
       headerTitleStyle: {
-        color: '#171f3d'
+        color: COLOR_PRIMARY
       },
       headerRight: <MapButton />
     }
@@ -45,7 +46,7 @@ const MapStack = createStackNavigator(
       headerTitle: 'Metro Map',
       headerBackTitle: 'Back',
       headerTitleStyle: {
-        color: '#171f3d'
+        color: COLOR_PRIMARY
       },
       headerLeft: <MenuButton />,
       headerRight: <TrainButton />
@@ -65,7 +66,7 @@ const SupportStack = createStackNavigator(
       headerTitle: 'Support',
       headerBackTitle: 'Back',
       headerTitleStyle: {
-        color: '#171f3d'
+        color: COLOR_PRIMARY
       },
       headerLeft: <MenuButton />,
       headerRight: <TrainButton />

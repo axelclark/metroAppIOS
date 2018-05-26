@@ -8,6 +8,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { SearchBar } from 'react-native-elements'
+import {
+  COLOR_PRIMARY,
+  COLOR_BORDER,
+  COLOR_BACKGROUND
+} from '../constants/styles'
 
 export default class StationList extends React.PureComponent {
   onPressItem = (item) => {
@@ -27,7 +32,7 @@ export default class StationList extends React.PureComponent {
           style={styles.icon}
           name={item.Favorite === true ? 'favorite' : 'favorite-border'}
           size={30}
-          color="black"
+          color={COLOR_PRIMARY}
           onPress={() => this.props.onPressIcon(item)}
         />
       </View>
@@ -71,14 +76,14 @@ const styles = StyleSheet.create({
     flex: 1
   },
   searchBarContainer: {
-    backgroundColor: 'white',
-    borderTopColor: 'rgba(23, 31, 61, .2)',
-    borderBottomColor: 'rgba(23, 31, 61, .2)',
+    backgroundColor: COLOR_BACKGROUND,
+    borderTopColor: COLOR_BORDER,
+    borderBottomColor: COLOR_BORDER,
   },
   stationContainer: {
     flex: 1,
     flexDirection: 'row',
-    borderColor: 'rgba(23, 31, 61, .2)',
+    borderColor: COLOR_BORDER,
     borderBottomWidth: 1,
     justifyContent: 'space-between',
   },
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
     flex: 6
   },
   text: {
-    color: '#171f3d',
+    color: COLOR_PRIMARY,
     fontSize: 18
   },
   icon: {

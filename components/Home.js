@@ -6,6 +6,7 @@ import {
 import FilteredStations from './FilteredStations'
 import TabBar from './TabBar'
 import MenuButton from './MenuButton'
+import { COLOR_BACKGROUND } from '../constants/styles'
 
 export default class Home extends React.Component {
   constructor() {
@@ -43,7 +44,7 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLOR_BACKGROUND,
     alignItems: 'stretch',
     justifyContent: 'center',
   }

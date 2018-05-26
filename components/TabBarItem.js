@@ -1,24 +1,25 @@
 import React from 'react'
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
- 
-const TabBarItem = ({ title, lineCode, selected, setLine, line }) => (
+import { COLOR_PRIMARY, COLOR_BORDER } from '../constants/styles'
+
+const TabBarItem = ({ title, lineCode, setLine, line }) => (
   <TouchableHighlight
     underlayColor='#efefef'
     onPress={setLine}
     style={[
-      styles.item, selected ? styles.selected : null,
+      styles.item,
       title !== 'All' ? styles.border : null,
       line === lineCode ? styles[title] : null
     ]}>
-    <Text style={[ 
-      styles.itemText, 
-      line === lineCode ? [styles.bold, styles[line]] : null 
+    <Text style={[
+      styles.itemText,
+      line === lineCode ? [styles.bold, styles[line]] : null
     ]}>
       {title}
     </Text>
   </TouchableHighlight>
 )
- 
+
 const styles = StyleSheet.create({
   item: {
     flex: 1,
@@ -27,10 +28,10 @@ const styles = StyleSheet.create({
   },
   border: {
     borderLeftWidth: 1,
-    borderLeftColor: '#dddddd'
+    borderLeftColor: COLOR_BORDER,
   },
   itemText: {
-    color: '#171f3d',
+    color: COLOR_PRIMARY,
     fontSize: 12
   },
   bold: {
@@ -70,5 +71,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 })
- 
+
 export default TabBarItem

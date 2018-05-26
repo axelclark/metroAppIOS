@@ -8,6 +8,7 @@ import {
   View
 } from 'react-native'
 import TrainList from './TrainList'
+import { COLOR_PRIMARY, COLOR_BACKGROUND } from '../constants/styles'
 
 export default class SingleStation extends React.Component {
   state = {
@@ -98,7 +99,7 @@ export default class SingleStation extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLOR_BACKGROUND,
     alignItems: 'stretch',
     justifyContent: 'flex-start',
     padding: 10
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#171f3d',
+    color: COLOR_PRIMARY,
     padding: 20,
     paddingBottom: 10
   },
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   },
   platformText: {
     fontSize: 18,
-    color: '#171f3d',
+    color: COLOR_PRIMARY,
     fontWeight: 'bold'
   }
 });

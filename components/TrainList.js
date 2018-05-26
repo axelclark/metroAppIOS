@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import { COLOR_PRIMARY } from '../constants/styles'
 
 const Train = ({ train }) => (
   <View style={styles.container}>
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
   },
   text: {
-    color: '#171f3d',
+    color: COLOR_PRIMARY,
     fontSize: 18
   }
 });
