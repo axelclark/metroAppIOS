@@ -11,6 +11,10 @@
 		},
 		"android": {
 			"package": "com.axelclark2.metroapp"
-		}
-	}
+    },
+    "splash": {
+      "image": "./metroAppSplash.png",
+      "backgroundColor": "#171f3d"
+    }
+  }
 }
