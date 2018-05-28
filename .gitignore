@@ -6,6 +6,9 @@
 # dependencies
 /node_modules
 
+# pxm_projects
+/assets/pxm_projects
+
 # misc
 .env.local
 .env.development.local
@@ -15,3 +18,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.DS_Store

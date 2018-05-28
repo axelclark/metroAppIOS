@@ -1,19 +1,19 @@
 {
-	"expo": {
-		"name": "MetroApp",
-		"sdkVersion": "26.0.0",
-		"icon": "./metroAppIcon.png",
-		"description": "Simple app to access WMATA train status",
-		"version": "1.1.0",
-		"orientation": "portrait",
-		"ios": {
-			"bundleIdentifier": "com.axelclark2.metroapp"
-		},
-		"android": {
-			"package": "com.axelclark2.metroapp"
+  "expo": {
+    "name": "MetroApp",
+    "sdkVersion": "26.0.0",
+    "icon": "./assets/metroAppIcon.png",
+    "description": "Simple app to access WMATA train status",
+    "version": "1.1.0",
+    "orientation": "portrait",
+    "ios": {
+      "bundleIdentifier": "com.axelclark2.metroapp"
+    },
+    "android": {
+      "package": "com.axelclark2.metroapp"
     },
     "splash": {
-      "image": "./metroAppSplash.png",
+      "image": "./assets/metroAppSplash.png",
       "backgroundColor": "#171f3d"
     }
   }
