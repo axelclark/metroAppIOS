@@ -3,12 +3,17 @@ import {
   ActivityIndicator,
   RefreshControl,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
   View
 } from 'react-native'
 import TrainList from './TrainList'
-import { COLOR_PRIMARY, COLOR_BACKGROUND } from '../constants/styles'
+import {
+  BAR_STYLE,
+  COLOR_BACKGROUND,
+  COLOR_PRIMARY
+} from '../constants/styles'
 
 export default class SingleStation extends React.Component {
   state = {
@@ -56,12 +61,16 @@ export default class SingleStation extends React.Component {
 
   render() {
     const name = this.props.navigation.getParam('Name', 'No Station')
-    const { trains } = this.state
+    const { trains, loading } = this.state
     const stationCode = this.props.navigation.getParam('Code', 'None')
     const platform1Trains = this.getStationTrainsByGroup(trains, stationCode, "1")
     const platform2Trains = this.getStationTrainsByGroup(trains, stationCode, "2")
     return (
       <View style={styles.container}>
+        <StatusBar
+          barStyle={BAR_STYLE}
+          networkActivityIndicatorVisible={loading}
+        />
         <ScrollView
           refreshControl={
             <RefreshControl

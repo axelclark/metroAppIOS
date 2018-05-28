@@ -1,12 +1,13 @@
 import React from 'react';
 import {
+  StatusBar,
   StyleSheet,
   View
 } from 'react-native'
 import FilteredStations from './FilteredStations'
 import TabBar from './TabBar'
 import MenuButton from './MenuButton'
-import { COLOR_BACKGROUND } from '../constants/styles'
+import { BAR_STYLE, COLOR_BACKGROUND } from '../constants/styles'
 
 export default class Home extends React.Component {
   constructor() {
@@ -34,6 +35,7 @@ export default class Home extends React.Component {
     const { line } = this.state
     return (
       <View style={styles.container}>
+        <StatusBar barStyle={BAR_STYLE}/>
         <FilteredStations line={line} navigate={this.navigate}/>
         <TabBar line={line} setLine={this.setLine} />
       </View>
