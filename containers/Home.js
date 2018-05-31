@@ -5,8 +5,8 @@ import {
   View
 } from 'react-native'
 import FilteredStations from './FilteredStations'
-import TabBar from './TabBar'
-import MenuButton from './MenuButton'
+import TabBar from '../components/TabBar'
+import MenuButton from '../components/MenuButton'
 import { BAR_STYLE, COLOR_BACKGROUND } from '../constants/styles'
 
 export default class Home extends React.Component {

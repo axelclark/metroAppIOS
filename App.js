@@ -3,7 +3,7 @@ import {
   createStackNavigator,
   createDrawerNavigator
 } from 'react-navigation'
-import Home from './components/Home'
+import Home from './containers/Home'
 import SingleStation from './containers/SingleStation'
 import MetroMap from './components/MetroMap'
 import MapButton from './components/MapButton'

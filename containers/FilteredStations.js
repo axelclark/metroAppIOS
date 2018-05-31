@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  AsyncStorage,
-  View
+  AsyncStorage
 } from 'react-native';
 import stationsData from '../data/stations'
-import StationList from './StationList'
+import StationList from '../components/StationList'
 
 export default class FilteredStations extends React.Component {
   constructor() {
