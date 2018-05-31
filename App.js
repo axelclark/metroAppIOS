@@ -4,7 +4,7 @@ import {
   createDrawerNavigator
 } from 'react-navigation'
 import Home from './components/Home'
-import SingleStation from './components/SingleStation'
+import SingleStation from './containers/SingleStation'
 import MetroMap from './components/MetroMap'
 import MapButton from './components/MapButton'
 import Support from './components/Support'
