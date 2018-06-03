@@ -3,7 +3,7 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
 import { COLOR_PRIMARY } from '../constants/styles'
 
@@ -16,12 +16,11 @@ const Train = ({ train }) => (
 )
 
 const TrainList = ({ trains }) => {
-  const renderTrains = trains.map((train) =>
-    <Train
-      key={train.DestinationCode + "-" + train.Min}
+  const renderTrains = trains.map(train =>
+    (<Train
+      key={`${train.DestinationCode}-${train.Min}`}
       train={train}
-    />
-  )
+    />))
 
   return (
     <View>
@@ -35,8 +34,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLOR_PRIMARY,
-    fontSize: 18
-  }
+    fontSize: 18,
+  },
 });
 
 export default TrainList

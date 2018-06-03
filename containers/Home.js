@@ -2,7 +2,7 @@ import React from 'react';
 import {
   StatusBar,
   StyleSheet,
-  View
+  View,
 } from 'react-native'
 import FilteredStations from './FilteredStations'
 import TabBar from '../components/TabBar'
@@ -13,16 +13,16 @@ export default class Home extends React.Component {
   constructor() {
     super()
     this.state = {
-      line: 'All'
+      line: 'All',
     }
     this.setLine = this.setLine.bind(this)
   }
 
   static navigationOptions = {
-    headerLeft: <MenuButton />
+    headerLeft: <MenuButton />,
   };
 
-  setLine (line) {
+  setLine(line) {
     this.setState({ line })
   }
 
@@ -35,8 +35,8 @@ export default class Home extends React.Component {
     const { line } = this.state
     return (
       <View style={styles.container}>
-        <StatusBar barStyle={BAR_STYLE}/>
-        <FilteredStations line={line} navigate={this.navigate}/>
+        <StatusBar barStyle={BAR_STYLE} />
+        <FilteredStations line={line} navigate={this.navigate} />
         <TabBar line={line} setLine={this.setLine} />
       </View>
     );
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_BACKGROUND,
     alignItems: 'stretch',
     justifyContent: 'center',
-  }
+  },
 });
 

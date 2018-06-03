@@ -2,19 +2,23 @@ import React from 'react'
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
 import { COLOR_PRIMARY, COLOR_BORDER } from '../constants/styles'
 
-const TabBarItem = ({ title, lineCode, setLine, line }) => (
+const TabBarItem = ({
+  title, lineCode, setLine, line,
+}) => (
   <TouchableHighlight
-    underlayColor='#efefef'
+    underlayColor="#efefef"
     onPress={setLine}
     style={[
       styles.item,
       title !== 'All' ? styles.border : null,
-      line === lineCode ? styles[title] : null
-    ]}>
+      line === lineCode ? styles[title] : null,
+    ]}
+  >
     <Text style={[
       styles.itemText,
-      line === lineCode ? [styles.bold, styles[line]] : null
-    ]}>
+      line === lineCode ? [styles.bold, styles[line]] : null,
+    ]}
+    >
       {title}
     </Text>
   </TouchableHighlight>
@@ -24,7 +28,7 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   border: {
     borderLeftWidth: 1,
@@ -32,44 +36,44 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: COLOR_PRIMARY,
-    fontSize: 12
+    fontSize: 12,
   },
   bold: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   All: {
-    backgroundColor: '#f0f0f5'
+    backgroundColor: '#f0f0f5',
   },
   Blue: {
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
   Green: {
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   Orange: {
-    backgroundColor: 'orange'
+    backgroundColor: 'orange',
   },
   Red: {
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   Silver: {
-    backgroundColor: 'gray'
+    backgroundColor: 'gray',
   },
   Yellow: {
-    backgroundColor: 'yellow'
+    backgroundColor: 'yellow',
   },
   BL: {
-    color: 'white'
+    color: 'white',
   },
   GR: {
-    color: 'white'
+    color: 'white',
   },
   RD: {
-    color: 'white'
+    color: 'white',
   },
   SV: {
-    color: 'white'
-  }
+    color: 'white',
+  },
 })
 
 export default TabBarItem

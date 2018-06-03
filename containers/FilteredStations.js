@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  AsyncStorage
-} from 'react-native';
+import { AsyncStorage } from 'react-native';
 import stationsData from '../data/stations'
 import StationList from '../components/StationList'
 
@@ -26,10 +24,10 @@ export default class FilteredStations extends React.Component {
         this.setState({ stations: JSON.parse(persistedStations) });
       } else {
         const formattedStations = this.formattedStations(stationsData)
-        this.setState({ stations: formattedStations})
+        this.setState({ stations: formattedStations })
       }
     } catch (error) {
-      console.log("Error retrieving data" + error);
+      console.log(`Error retrieving data${error}`);
     }
   }
 
@@ -37,15 +35,12 @@ export default class FilteredStations extends React.Component {
     try {
       await AsyncStorage.setItem('MetroApp:stations', JSON.stringify(stations));
     } catch (error) {
-      console.log("Error saving data" + error);
+      console.log(`Error saving data${error}`);
     }
   }
 
-  addFavoriteKey = (stationsList) => {
-    return stationsList.map(station =>
-      Object.assign({}, station, {Favorite: false})
-    )
-  }
+  addFavoriteKey = stationsList => stationsList.map(station =>
+    Object.assign({}, station, { Favorite: false }))
 
   formattedStations = (stations) => {
     const stationsList = stations.Stations
@@ -58,18 +53,16 @@ export default class FilteredStations extends React.Component {
     const sortedByName = this.sortStationsByName(filteredStations)
     const favorites = this.filterFavorites(sortedByName)
     const regulars = this.rejectFavorites(sortedByName)
-    const stations = [ ...favorites, ...regulars ]
+    const stations = [...favorites, ...regulars]
     return stations;
   }
 
   filterByInput = (stations, text) => {
-    if (text !== "") {
+    if (text !== '') {
       return stations.filter(station =>
-        station.Name.toLowerCase().includes(text.toLowerCase())
-      )
-    } else {
-      return stations
+        station.Name.toLowerCase().includes(text.toLowerCase()))
     }
+    return stations
   }
 
   filterStationsByLine = (stations, line) => {
@@ -85,10 +78,8 @@ export default class FilteredStations extends React.Component {
     }
   }
 
-  sortStationsByName = (stations) => {
-    return stations.sort((stationA, stationB) =>
-      this.compareStationNames(stationA, stationB))
-  }
+  sortStationsByName = stations => stations.sort((stationA, stationB) =>
+    this.compareStationNames(stationA, stationB))
 
   compareStationNames = (stationA, stationB) => {
     const a = stationA.Name.toLowerCase()
@@ -96,27 +87,20 @@ export default class FilteredStations extends React.Component {
     return a < b ? -1 : a > b ? 1 : 0
   }
 
-  filterFavorites = (stations) => {
-    return stations.filter(station =>
-      station.Favorite === true
-    )
-  }
+  filterFavorites = stations => stations.filter(station =>
+    station.Favorite === true)
 
-  rejectFavorites = (stations) => {
-    return stations.filter(station =>
-      station.Favorite === false
-    )
-  }
+  rejectFavorites = stations => stations.filter(station =>
+    station.Favorite === false)
 
   toggleFavoriteStation = (favoriteStation) => {
-    const stations = this.state.stations.map(station => {
+    const stations = this.state.stations.map((station) => {
       if (station.Code === favoriteStation.Code) {
         return Object.assign({}, station, {
-          Favorite: !station.Favorite
+          Favorite: !station.Favorite,
         })
-      } else {
-        return station
       }
+      return station
     })
     this.saveStations(stations)
     this.setState({ stations })
@@ -131,7 +115,7 @@ export default class FilteredStations extends React.Component {
         stations={stations}
         navigate={navigate}
         onPressIcon={this.toggleFavoriteStation}
-        handleOnChange={(filterText) => this.setState({ filterText })}
+        handleOnChange={textInput => this.setState({ filterText: textInput })}
         handleOnClear={() => this.setState({ filterText: '' })}
         value={filterText}
       />

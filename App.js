@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   createStackNavigator,
-  createDrawerNavigator
+  createDrawerNavigator,
 } from 'react-navigation'
 import Home from './containers/Home'
 import SingleStation from './containers/SingleStation'
@@ -15,11 +15,11 @@ import { COLOR_PRIMARY } from './constants/styles'
 const RootStack = createStackNavigator(
   {
     Home: {
-      screen: Home
+      screen: Home,
     },
     SingleStation: {
-      screen: SingleStation
-    }
+      screen: SingleStation,
+    },
   },
   {
     initialRouteName: 'Home',
@@ -27,18 +27,18 @@ const RootStack = createStackNavigator(
       headerTitle: 'MetroApp',
       headerBackTitle: 'Back',
       headerTitleStyle: {
-        color: COLOR_PRIMARY
+        color: COLOR_PRIMARY,
       },
-      headerRight: <MapButton />
-    }
-  }
+      headerRight: <MapButton />,
+    },
+  },
 )
 
 const MapStack = createStackNavigator(
   {
     MetroMap: {
-      screen: MetroMap
-    }
+      screen: MetroMap,
+    },
   },
   {
     initialRouteName: 'MetroMap',
@@ -46,19 +46,19 @@ const MapStack = createStackNavigator(
       headerTitle: 'Metro Map',
       headerBackTitle: 'Back',
       headerTitleStyle: {
-        color: COLOR_PRIMARY
+        color: COLOR_PRIMARY,
       },
       headerLeft: <MenuButton />,
-      headerRight: <TrainButton />
-    }
-  }
+      headerRight: <TrainButton />,
+    },
+  },
 )
 
 const SupportStack = createStackNavigator(
   {
     Support: {
-      screen: Support
-    }
+      screen: Support,
+    },
   },
   {
     initialRouteName: 'Support',
@@ -66,12 +66,12 @@ const SupportStack = createStackNavigator(
       headerTitle: 'Support',
       headerBackTitle: 'Back',
       headerTitleStyle: {
-        color: COLOR_PRIMARY
+        color: COLOR_PRIMARY,
       },
       headerLeft: <MenuButton />,
-      headerRight: <TrainButton />
-    }
-  }
+      headerRight: <TrainButton />,
+    },
+  },
 )
 const App = createDrawerNavigator({
   Home: {

@@ -2,17 +2,17 @@ import React from 'react';
 import {
   StatusBar,
   View,
-  WebView
+  WebView,
 } from 'react-native';
 import { BAR_STYLE } from '../constants/styles'
 
 class MetroMap extends React.Component {
   state = {
-    loading: true
+    loading: true,
   }
 
   static navigationOptions = {
-    drawerLabel: 'Metro Map'
+    drawerLabel: 'Metro Map',
   };
 
   render() {
@@ -25,7 +25,7 @@ class MetroMap extends React.Component {
           networkActivityIndicatorVisible={loading}
         />
         <WebView
-          source={{uri: 'https://www.wmata.com/schedules/maps/upload/2017-System-Map.pdf'}}
+          source={{ uri: 'https://www.wmata.com/schedules/maps/upload/2017-System-Map.pdf' }}
           onLoadEnd={() => this.setState({ loading: false })}
         />
       </View>

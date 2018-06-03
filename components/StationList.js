@@ -4,14 +4,14 @@ import {
   StyleSheet,
   TouchableHighlight,
   Text,
-  View
+  View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { SearchBar } from 'react-native-elements'
 import {
   COLOR_PRIMARY,
   COLOR_BORDER,
-  COLOR_BACKGROUND
+  COLOR_BACKGROUND,
 } from '../constants/styles'
 
 export default class StationList extends React.PureComponent {
@@ -19,34 +19,31 @@ export default class StationList extends React.PureComponent {
     this.props.navigate('SingleStation', item)
   };
 
-  renderStation = ({ item, index }) => {
-    return (
-      <View style={[styles.stationContainer, { borderTopWidth: index === 0 ? 1 : null }]}>
-        <TouchableHighlight
-          onPress={()=>{this.onPressItem(item)}}
-          style={[styles.item,]}
-        >
-          <Text style={styles.text}>{item.Name}</Text>
-        </TouchableHighlight>
-        <Icon
-          style={styles.icon}
-          name={item.Favorite === true ? 'favorite' : 'favorite-border'}
-          size={30}
-          color={COLOR_PRIMARY}
-          onPress={() => this.props.onPressIcon(item)}
-        />
-      </View>
-    )
-  }
+  renderStation = ({ item, index }) => (
+    <View style={[styles.stationContainer, { borderTopWidth: index === 0 ? 1 : null }]}>
+      <TouchableHighlight
+        onPress={() => { this.onPressItem(item) }}
+        style={[styles.item]}
+      >
+        <Text style={styles.text}>{item.Name}</Text>
+      </TouchableHighlight>
+      <Icon
+        style={styles.icon}
+        name={item.Favorite === true ? 'favorite' : 'favorite-border'}
+        size={30}
+        color={COLOR_PRIMARY}
+        onPress={() => this.props.onPressIcon(item)}
+      />
+    </View>
+  )
 
   render() {
-
     const {
       stations,
       navigate,
       handleOnChange,
       handleOnClear,
-      value
+      value,
     } = this.props
 
     return (
@@ -56,14 +53,14 @@ export default class StationList extends React.PureComponent {
           searchIcon={{ size: 24 }}
           onChangeText={handleOnChange}
           onClear={handleOnClear}
-          placeholder='Type Here To Filter...'
+          placeholder="Type Here To Filter..."
           containerStyle={styles.searchBarContainer}
           inputStyle={{ backgroundColor: '#F5F5F5' }}
           value={value}
         />
         <FlatList
           data={stations}
-          keyExtractor={(item) => item.Code}
+          keyExtractor={item => item.Code}
           renderItem={this.renderStation}
         />
       </View>
@@ -73,7 +70,7 @@ export default class StationList extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   searchBarContainer: {
     backgroundColor: COLOR_BACKGROUND,
@@ -91,14 +88,14 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingLeft: 20,
     justifyContent: 'center',
-    flex: 6
+    flex: 6,
   },
   text: {
     color: COLOR_PRIMARY,
-    fontSize: 18
+    fontSize: 18,
   },
   icon: {
     alignSelf: 'center',
     padding: 15,
-  }
+  },
 });

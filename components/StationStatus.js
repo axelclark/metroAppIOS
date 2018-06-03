@@ -6,16 +6,16 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native'
 import TrainList from './TrainList'
 import {
   BAR_STYLE,
   COLOR_BACKGROUND,
-  COLOR_PRIMARY
+  COLOR_PRIMARY,
 } from '../constants/styles'
 
-export default StationStatus = props =>
+const StationStatus = props => (
   <View style={styles.container}>
     <StatusBar
       barStyle={BAR_STYLE}
@@ -26,7 +26,7 @@ export default StationStatus = props =>
         <RefreshControl
           refreshing={props.refreshing}
           onRefresh={props.handleRefresh}
-          title='Pull to Refresh'
+          title="Pull to Refresh"
         />
       }
     >
@@ -51,6 +51,7 @@ export default StationStatus = props =>
       </View>
     </ScrollView>
   </View>
+)
 
 const styles = StyleSheet.create({
   container: {
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_BACKGROUND,
     alignItems: 'stretch',
     justifyContent: 'flex-start',
-    padding: 10
+    padding: 10,
   },
   headerText: {
     textAlign: 'center',
@@ -66,14 +67,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: COLOR_PRIMARY,
     padding: 20,
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   platformContainer: {
-    padding: 20
+    padding: 20,
   },
   platformText: {
     fontSize: 18,
     color: COLOR_PRIMARY,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
+
+export default StationStatus
