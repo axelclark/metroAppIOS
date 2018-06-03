@@ -23,7 +23,8 @@
     "eslint": "eslint"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupTestFrameworkScriptFile": "./setupJest"
   },
   "dependencies": {
     "expo": "^27.0.0",
