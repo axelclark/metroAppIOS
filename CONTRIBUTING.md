@@ -77,7 +77,7 @@ Please adhere to the coding conventions in the project (indentation, accurate co
     git rebase -i origin/master
     ```
 
-9. Make sure all the tests are still passing.
+9. Make sure all the tests are still passing.  See additional info in the [Testing](#testing) section below.
 
     ```bash
     yarn test
@@ -89,7 +89,7 @@ Please adhere to the coding conventions in the project (indentation, accurate co
     git push origin <topic-branch-name>
     ```
 
-11. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description.
+11. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description.  [Ebert](https://ebertapp.io/github/axelclark/metroAppIOS) will do an automated Code Review, see [Code Conventions](#code-conventions) below.
 
 12. If you haven't updated your pull request for a while, you should consider rebasing on master and resolving any conflicts.
 
@@ -109,7 +109,8 @@ We use [Ebert](https://ebertapp.io/github/axelclark/metroAppIOS) to automate cod
 
 ## Testing
 
-We're working on adding tests for the project.  When a pull request is submitted, [Travis CI](https://travis-ci.org/axelclark/metroAppIOS) is used to run the test suite.  If your code breaks any of the tests, please fix the issue and push your branch again.
+We're working on adding tests for the project.  When a pull request is submitted, [Travis CI](https://travis-ci.org/axelclark/metroAppIOS) is used to run the test suite.  If your code breaks any of the tests, please fix the issue and push your branch again.  If the snapshot test is failing because you added a feature, run `yarn test -u` to update the snapshot.  See [Snapshot Testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html) for more info.
+
 
 Thanks,
 Axel
