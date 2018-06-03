@@ -1,4 +1,5 @@
 # MetroAppIOS
+[![Ebert](https://ebertapp.io/github/axelclark/metroAppIOS.svg)](https://ebertapp.io/github/axelclark/metroAppIOS) [![Build Status](https://travis-ci.org/axelclark/metroAppIOS.svg?branch=master)](https://travis-ci.org/axelclark/metroAppIOS)
 
 A simple IOS app project that tells you when WMATA Metro trains arrive.
 
