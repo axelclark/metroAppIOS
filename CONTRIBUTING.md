@@ -105,11 +105,11 @@ Please adhere to the coding conventions in the project (indentation, accurate co
 
 ## Code Conventions
 
-We use [Ebert](https://ebertapp.io/github/axelclark/metroAppIOS) to automate code reviews for each pull request.  We're still working on getting the rules updated for the project and React, so don't worry about the comments at the moment.
+We use [Ebert](https://ebertapp.io/github/axelclark/metroAppIOS) to automate code reviews for each pull request.  Once you submit your pull request, Ebert will review and provide comments based on the project's [ESLint config](https://github.com/axelclark/metroAppIOS/blob/master/.eslintrc.json).  The project uses [Air BNB's ESLint Config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) with some minor modifications.  The review will pass if no additional issues are created with your pull request.  Fixing existing issues in files you edit is greatly appreciated!
 
 ## Testing
 
-Testing is something we will be adding soon!
+We're working on adding tests for the project.  When a pull request is submitted, [Travis CI](https://travis-ci.org/axelclark/metroAppIOS) is used to run the test suite.  If your code breaks any of the tests, please fix the issue and push your branch again.
 
 Thanks,
 Axel
