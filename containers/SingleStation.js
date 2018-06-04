@@ -8,17 +8,12 @@ export default class SingleStation extends React.Component {
       trains: [],
       loading: true,
       refreshing: false,
+      lastUpdated: null,
     };
   }
 
   componentDidMount() {
     this.fetchTrains()
-  }
-
-  handleRefresh = () => {
-    this.setState({ refreshing: true, loading: true });
-    this.fetchTrains()
-    this.setState({ refreshing: false });
   }
 
   getStationTrainsByGroup = (trains, stationCode, group) => {
@@ -42,14 +37,25 @@ export default class SingleStation extends React.Component {
     const myHeaders = new Headers();
     myHeaders.append('api_key', 'a0363af8b5ab489bb2ce9479697aa70a');
     const myInit = { method: 'Get', headers: myHeaders };
+    const formatDate = date => new Date(date).toLocaleTimeString()
     fetch(myRequest, myInit)
       .then(res => res.json())
-      .then(json => this.setState({ trains: json.Trains, loading: false }))
+      .then(json => this.setState({
+        trains: json.Trains,
+        loading: false,
+        lastUpdated: formatDate(Date.now()),
+      }))
       .catch(err => console.log('err:', err))
   }
 
+  handleRefresh = () => {
+    this.setState({ refreshing: true, loading: true });
+    this.fetchTrains()
+    this.setState({ refreshing: false });
+  }
+
   render() {
-    const { trains, loading, refreshing } = this.state
+    const { trains, loading, refreshing, lastUpdated } = this.state
     const name = this.props.navigation.getParam('Name', 'No Station')
     const stationCode = this.props.navigation.getParam('Code', 'None')
     const platform1Trains = this.getStationTrainsByGroup(trains, stationCode, '1')
@@ -61,6 +67,7 @@ export default class SingleStation extends React.Component {
         platform2Trains={platform2Trains}
         loading={loading}
         refreshing={refreshing}
+        lastUpdated={lastUpdated}
         handleRefresh={() => this.handleRefresh()}
       />
     );

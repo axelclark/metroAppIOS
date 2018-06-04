@@ -33,7 +33,7 @@ const StationStatus = props => (
       <View>
         <Text style={styles.headerText}>{props.name}</Text>
       </View>
-      <View style={styles.platformContainer}>
+      <View style={styles.sectionContainer}>
         <Text style={styles.platformText}>Platform 1</Text>
         {
           props.loading ? <ActivityIndicator /> : (
@@ -41,7 +41,7 @@ const StationStatus = props => (
           )
         }
       </View>
-      <View style={styles.platformContainer}>
+      <View style={styles.sectionContainer}>
         <Text style={styles.platformText}>Platform 2</Text>
         {
           props.loading ? <ActivityIndicator /> : (
@@ -49,6 +49,14 @@ const StationStatus = props => (
           )
         }
       </View>
+      {
+        !props.loading && props.lastUpdated &&
+          <View style={styles.sectionContainer}>
+            <Text>
+              Last Updated: {props.lastUpdated}
+            </Text>
+          </View>
+      }
     </ScrollView>
   </View>
 )
@@ -69,7 +77,7 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 10,
   },
-  platformContainer: {
+  sectionContainer: {
     padding: 20,
   },
   platformText: {
