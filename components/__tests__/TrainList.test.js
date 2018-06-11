@@ -53,3 +53,9 @@ test('renders correctly', () => {
   const tree = renderer.create(<TrainList trains={trains}/>).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('renders when no trains scheduled', () => {
+  const trains = []
+  const tree = renderer.create(<TrainList trains={trains}/>).toJSON()
+  expect(tree).toMatchSnapshot()
+})

@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Customize arrival messages for BRD, ARR, and ""
+* Add message for when no trains are scheduled
 * Add Last Updated to Train status
 * Add snapshot tests
 

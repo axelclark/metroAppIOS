@@ -174,3 +174,23 @@ exports[`renders correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders when no trains scheduled 1`] = `
+<View
+  style={Object {}}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#171f3d",
+        "fontSize": 18,
+      }
+    }
+  >
+    No trains are currently scheduled
+  </Text>
+</View>
+`;
