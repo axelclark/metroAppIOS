@@ -3,19 +3,12 @@
 exports[`renders correctly 1`] = `
 <View>
   <View
-    style={Object {}}
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
+    style={
+      Object {
+        "marginTop": 10,
       }
-    />
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -45,19 +38,12 @@ exports[`renders correctly 1`] = `
     </Text>
   </View>
   <View
-    style={Object {}}
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
+    style={
+      Object {
+        "marginTop": 10,
       }
-    />
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -87,19 +73,12 @@ exports[`renders correctly 1`] = `
     </Text>
   </View>
   <View
-    style={Object {}}
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
+    style={
+      Object {
+        "marginTop": 10,
       }
-    />
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -131,19 +110,12 @@ exports[`renders correctly 1`] = `
     </Text>
   </View>
   <View
-    style={Object {}}
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
+    style={
+      Object {
+        "marginTop": 10,
       }
-    />
+    }
+  >
     <Text
       accessible={true}
       allowFontScaling={true}
@@ -177,7 +149,11 @@ exports[`renders correctly 1`] = `
 
 exports[`renders when no trains scheduled 1`] = `
 <View
-  style={Object {}}
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
 >
   <Text
     accessible={true}

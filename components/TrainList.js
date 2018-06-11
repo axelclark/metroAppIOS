@@ -24,7 +24,6 @@ const Arrival = ({ mins }) => {
 
 const Train = ({ train }) => (
   <View style={styles.container}>
-    <Text style={styles.text}>{train.Name}</Text>
     <Text style={styles.text}>Destination: {train.DestinationName}</Text>
     <Arrival mins={train.Min} />
   </View>
@@ -54,6 +53,7 @@ const TrainList = ({ trains }) => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 10,
   },
   text: {
     color: COLOR_PRIMARY,
