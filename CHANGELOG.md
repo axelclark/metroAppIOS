@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* Customize arrival messages for BRD, ARR, and ""
 * Add Last Updated to Train status
 * Add snapshot tests
 
