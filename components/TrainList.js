@@ -7,11 +7,26 @@ import {
 } from 'react-native';
 import { COLOR_PRIMARY } from '../constants/styles'
 
+const Arrival = ({ mins }) => {
+  switch (mins) {
+    case 'BRD':
+      return <Text style={styles.text}>Boarding!</Text>
+    case 'ARR':
+      return <Text style={styles.text}>Train is arriving...</Text>
+    case '1':
+      return <Text style={styles.text}>Arrival in 1 minute</Text>
+    case '':
+      return <Text style={styles.text}>Arrival in TBD minutes</Text>
+    default:
+      return <Text style={styles.text}>Arrival in {mins} minutes</Text>
+  }
+}
+
 const Train = ({ train }) => (
   <View style={styles.container}>
     <Text style={styles.text}>{train.Name}</Text>
     <Text style={styles.text}>Destination: {train.DestinationName}</Text>
-    <Text style={styles.text}>Arrival in {train.Min} minutes</Text>
+    <Arrival mins={train.Min} />
   </View>
 )
 

@@ -41,9 +41,49 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      Arrival in 
-      BRD
-       minutes
+      Boarding!
+    </Text>
+  </View>
+  <View
+    style={Object {}}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
+      }
+    >
+      Destination: 
+      Shady Grove
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
+      }
+    >
+      Train is arriving...
     </Text>
   </View>
   <View
@@ -88,6 +128,48 @@ exports[`renders correctly 1`] = `
       Arrival in 
       10
        minutes
+    </Text>
+  </View>
+  <View
+    style={Object {}}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
+      }
+    />
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
+      }
+    >
+      Destination: 
+      Shady Grove
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
+      }
+    >
+      Arrival in TBD minutes
     </Text>
   </View>
 </View>

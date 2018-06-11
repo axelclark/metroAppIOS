@@ -23,10 +23,32 @@ test('renders correctly', () => {
       "DestinationName": "Shady Grove",
       "Group": "2",
       "Line": "RD",
+      "LocationCode": "A05",
+      "LocationName": "Cleveland Park",
+      "Min": "ARR"
+    },
+    {
+      "Car": "8",
+      "Destination": "Shady Gr",
+      "DestinationCode": "A15",
+      "DestinationName": "Shady Grove",
+      "Group": "2",
+      "Line": "RD",
       "LocationCode": "A09",
       "LocationName": "Bethesda",
       "Min": "10"
     },
+    {
+      "Car": "8",
+      "Destination": "Shady Gr",
+      "DestinationCode": "A15",
+      "DestinationName": "Shady Grove",
+      "Group": "2",
+      "Line": "RD",
+      "LocationCode": "A09",
+      "LocationName": "Bethesda",
+      "Min": ""
+    }
   ]
   const tree = renderer.create(<TrainList trains={trains}/>).toJSON()
   expect(tree).toMatchSnapshot()
