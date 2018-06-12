@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
 import { COLOR_PRIMARY, COLOR_BORDER } from '../constants/styles'
+import lineToColor from '../constants/lineToColor'
 
 const TabBarItem = ({
   title, lineCode, setLine, line,
@@ -11,7 +12,7 @@ const TabBarItem = ({
     style={[
       styles.item,
       title !== 'All' ? styles.border : null,
-      line === lineCode ? styles[title] : null,
+      line === lineCode ? { backgroundColor: lineToColor[line] } : null,
     ]}
   >
     <Text style={[
@@ -40,27 +41,6 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: 'bold',
-  },
-  All: {
-    backgroundColor: '#f0f0f5',
-  },
-  Blue: {
-    backgroundColor: 'blue',
-  },
-  Green: {
-    backgroundColor: 'green',
-  },
-  Orange: {
-    backgroundColor: 'orange',
-  },
-  Red: {
-    backgroundColor: 'red',
-  },
-  Silver: {
-    backgroundColor: 'gray',
-  },
-  Yellow: {
-    backgroundColor: 'yellow',
   },
   BL: {
     color: 'white',
