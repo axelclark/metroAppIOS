@@ -5,26 +5,54 @@ import {
   Text,
   View,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { COLOR_PRIMARY } from '../constants/styles'
+import lineToColor from '../constants/lineToColor'
+
+const Destination = ({ destinationName, line, cars }) => (
+  <Text>
+    <Text style={styles.text}>{destinationName} </Text>
+    <Icon
+      name="directions-transit"
+      size={14}
+      color={lineToColor[line]}
+    />
+    <Text style={styles.text}> {cars} cars</Text>
+  </Text>
+)
 
 const Arrival = ({ mins }) => {
   switch (mins) {
     case 'BRD':
-      return <Text style={styles.text}>Boarding!</Text>
+      return <Text style={[[styles.text], [styles.bold]]}>Boarding!</Text>
     case 'ARR':
       return <Text style={styles.text}>Train is arriving...</Text>
-    case '1':
-      return <Text style={styles.text}>Arrival in 1 minute</Text>
     case '':
-      return <Text style={styles.text}>Arrival in TBD minutes</Text>
+      return <Text style={styles.text}>TBD minutes</Text>
+    case '1':
+      return (
+        <Text>
+          <Text style={[[styles.text], [styles.bold]]}>1 </Text>
+          <Text style={styles.text}>minutes</Text>
+        </Text>
+      )
     default:
-      return <Text style={styles.text}>Arrival in {mins} minutes</Text>
+      return (
+        <Text>
+          <Text style={[[styles.text], [styles.bold]]}>{mins} </Text>
+          <Text style={styles.text}>minutes</Text>
+        </Text>
+      )
   }
 }
 
 const Train = ({ train }) => (
   <View style={styles.container}>
-    <Text style={styles.text}>Destination: {train.DestinationName}</Text>
+    <Destination
+      destinationName={train.DestinationName}
+      line={train.Line}
+      cars={train.Car}
+    />
     <Arrival mins={train.Min} />
   </View>
 )
@@ -58,6 +86,9 @@ const styles = StyleSheet.create({
   text: {
     color: COLOR_PRIMARY,
     fontSize: 18,
+  },
+  bold: {
+    fontWeight: 'bold',
   },
 });
 

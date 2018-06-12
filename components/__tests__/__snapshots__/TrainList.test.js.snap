@@ -13,25 +13,60 @@ exports[`renders correctly 1`] = `
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
-      }
     >
-      Destination: 
-      Shady Grove
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+        Shady Grove
+         
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        8
+         cars
+      </Text>
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
+        Array [
+          Array [
+            Object {
+              "color": "#171f3d",
+              "fontSize": 18,
+            },
+          ],
+          Array [
+            Object {
+              "fontWeight": "bold",
+            },
+          ],
+        ]
       }
     >
       Boarding!
@@ -48,15 +83,41 @@ exports[`renders correctly 1`] = `
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
-      }
     >
-      Destination: 
-      Shady Grove
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+        Shady Grove
+         
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        8
+         cars
+      </Text>
     </Text>
     <Text
       accessible={true}
@@ -83,30 +144,83 @@ exports[`renders correctly 1`] = `
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
-      }
     >
-      Destination: 
-      Shady Grove
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+        Shady Grove
+         
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        8
+         cars
+      </Text>
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
-      }
     >
-      Arrival in 
-      10
-       minutes
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "#171f3d",
+                "fontSize": 18,
+              },
+            ],
+            Array [
+              Object {
+                "fontWeight": "bold",
+              },
+            ],
+          ]
+        }
+      >
+        10
+         
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+        minutes
+      </Text>
     </Text>
   </View>
   <View
@@ -120,15 +234,41 @@ exports[`renders correctly 1`] = `
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
-      }
     >
-      Destination: 
-      Shady Grove
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+        Shady Grove
+         
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+         
+        8
+         cars
+      </Text>
     </Text>
     <Text
       accessible={true}
@@ -141,7 +281,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      Arrival in TBD minutes
+      TBD minutes
     </Text>
   </View>
 </View>
