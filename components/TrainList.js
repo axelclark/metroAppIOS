@@ -33,7 +33,7 @@ const Arrival = ({ mins }) => {
       return (
         <Text>
           <Text style={[[styles.text], [styles.bold]]}>1 </Text>
-          <Text style={styles.text}>minutes</Text>
+          <Text style={styles.text}>minute</Text>
         </Text>
       )
     default:
