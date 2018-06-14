@@ -13,29 +13,45 @@ import {
   COLOR_BORDER,
   COLOR_BACKGROUND,
 } from '../constants/styles'
+import lineToColor from '../constants/lineToColor'
+import getStationLines from '../utils/getStationLines'
 
 export default class StationList extends React.PureComponent {
   onPressItem = (item) => {
     this.props.navigate('SingleStation', item)
   };
 
-  renderStation = ({ item, index }) => (
-    <View style={[styles.stationContainer, { borderTopWidth: index === 0 ? 1 : null }]}>
-      <TouchableHighlight
-        onPress={() => { this.onPressItem(item) }}
-        style={[styles.item]}
-      >
-        <Text style={styles.text}>{item.Name}</Text>
-      </TouchableHighlight>
+  renderStation = ({ item, index }) => {
+    const stationLines = getStationLines(item)
+    const renderIcons = stationLines.map(line => (
       <Icon
-        style={styles.icon}
-        name={item.Favorite === true ? 'favorite' : 'favorite-border'}
-        size={30}
-        color={COLOR_PRIMARY}
-        onPress={() => this.props.onPressIcon(item)}
+        key={line}
+        name="directions-transit"
+        size={14}
+        color={lineToColor[line]}
       />
-    </View>
-  )
+    ))
+    return (
+      <View style={[styles.stationContainer, { borderTopWidth: index === 0 ? 1 : null }]}>
+        <TouchableHighlight
+          onPress={() => { this.onPressItem(item) }}
+          style={[styles.item]}
+        >
+          <Text>
+            <Text style={styles.text}>{item.Name} </Text>
+            {renderIcons}
+          </Text>
+        </TouchableHighlight>
+        <Icon
+          style={styles.icon}
+          name={item.Favorite === true ? 'favorite' : 'favorite-border'}
+          size={30}
+          color={COLOR_PRIMARY}
+          onPress={() => this.props.onPressIcon(item)}
+        />
+      </View>
+    )
+  }
 
   render() {
     const {
