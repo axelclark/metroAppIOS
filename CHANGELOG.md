@@ -2,11 +2,12 @@
 
 ## Unreleased
 
-* Bug fixes
+* Add icons and style to stations and trains
 * Customize arrival messages for BRD, ARR, and ""
 * Add message for when no trains are scheduled
-* Add Last Updated to Train status
+* Add Last Updated to train status
 * Add snapshot tests
+* Bug fixes
 
 ## 1.1.0
 
