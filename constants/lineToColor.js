@@ -1,11 +1,14 @@
+const readableYellow = '#fde541'
+const lightGray = '#f0f0f5'
+
 const lineToColor = {
-  All: '#f0f0f5',
+  All: lightGray,
   BL: 'blue',
   GR: 'green',
   OR: 'orange',
   RD: 'red',
   SV: 'gray',
-  YL: 'yellow',
+  YL: readableYellow,
 }
 
 export default lineToColor
