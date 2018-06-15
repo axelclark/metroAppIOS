@@ -52,7 +52,7 @@ const StationStatus = props => (
       {
         !props.loading && props.lastUpdated &&
           <View style={styles.sectionContainer}>
-            <Text>
+            <Text style={styles.updateText}>
               Last Updated: {props.lastUpdated}
             </Text>
           </View>
@@ -84,6 +84,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: COLOR_PRIMARY,
     fontWeight: 'bold',
+    opacity: 0.7,
+    fontStyle: 'italic',
+  },
+  updateText: {
+    opacity: 0.7,
+    color: COLOR_PRIMARY,
   },
 });
 
