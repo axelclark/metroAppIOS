@@ -54,22 +54,13 @@ exports[`renders correctly 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
       style={
-        Array [
-          Array [
-            Object {
-              "color": "#171f3d",
-              "fontSize": 18,
-            },
-          ],
-          Array [
-            Object {
-              "fontWeight": "bold",
-            },
-          ],
-        ]
+        Object {
+          "color": "#171f3d",
+          "fontSize": 18,
+        }
       }
     >
-      Boarding!
+      🚈 Boarding!
     </Text>
   </View>
   <View
@@ -130,7 +121,7 @@ exports[`renders correctly 1`] = `
         }
       }
     >
-      Train is arriving...
+      🚊 Train is arriving...
     </Text>
   </View>
   <View
@@ -274,14 +265,42 @@ exports[`renders correctly 1`] = `
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#171f3d",
-          "fontSize": 18,
-        }
-      }
     >
-      TBD minutes
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Array [
+              Object {
+                "color": "#171f3d",
+                "fontSize": 18,
+              },
+            ],
+            Array [
+              Object {
+                "fontWeight": "bold",
+              },
+            ],
+          ]
+        }
+      >
+        TBD 
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#171f3d",
+            "fontSize": 18,
+          }
+        }
+      >
+        minutes
+      </Text>
     </Text>
   </View>
 </View>

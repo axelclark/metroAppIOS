@@ -24,11 +24,16 @@ const Destination = ({ destinationName, line, cars }) => (
 const Arrival = ({ mins }) => {
   switch (mins) {
     case 'BRD':
-      return <Text style={[[styles.text], [styles.bold]]}>Boarding!</Text>
+      return <Text style={styles.text}>🚈 Boarding!</Text>
     case 'ARR':
-      return <Text style={styles.text}>Train is arriving...</Text>
+      return <Text style={styles.text}>🚊 Train is arriving...</Text>
     case '':
-      return <Text style={styles.text}>TBD minutes</Text>
+      return (
+        <Text>
+          <Text style={[[styles.text], [styles.bold]]}>TBD </Text>
+          <Text style={styles.text}>minutes</Text>
+        </Text>
+      )
     case '1':
       return (
         <Text>
