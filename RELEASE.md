@@ -13,7 +13,9 @@
 9. Log in to [App Store Connect](https://appstoreconnect.apple.com/)
 10. Go to most recent `iOS App` then `+ Version`
 11. Add `What's New in This Version`, using `-` for each bullet
-12. Update screen shots:  5.5-Inch Retina Display `1242 x 2208` pixels for portrait
+12. Update screen shots:  
+    * 5.5-Inch Retina Display `1242 x 2208` pixels for portrait
+    * 5.8-Inch Super Retina Display `1125 x 2436` pixels for portrait
 13. Once build is done processing, add build to new version and submit for review
   
 Procedures from [How to Deploy a Create-React-Native-App to the App Store](https://codeburst.io/how-to-deploy-a-create-react-native-app-to-the-appstore-229a8fa36fb1)
