@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import {
   createStackNavigator,
   createDrawerNavigator,
@@ -10,7 +11,10 @@ import MapButton from './components/MapButton'
 import Support from './components/Support'
 import MenuButton from './components/MenuButton'
 import TrainButton from './components/TrainButton'
-import { COLOR_PRIMARY } from './constants/styles'
+import {
+  COLOR_PRIMARY,
+  HEADER_COLOR_BACKGROUND,
+} from './constants/styles'
 
 const RootStack = createStackNavigator(
   {
@@ -29,7 +33,11 @@ const RootStack = createStackNavigator(
       headerTitleStyle: {
         color: COLOR_PRIMARY,
       },
+      headerStyle: {
+        backgroundColor: HEADER_COLOR_BACKGROUND,
+      },
       headerRight: <MapButton />,
+      headerForceInset: { top: 'never', bottom: 'never' },
     },
   },
 )
@@ -48,8 +56,12 @@ const MapStack = createStackNavigator(
       headerTitleStyle: {
         color: COLOR_PRIMARY,
       },
+      headerStyle: {
+        backgroundColor: HEADER_COLOR_BACKGROUND,
+      },
       headerLeft: <MenuButton />,
       headerRight: <TrainButton />,
+      headerForceInset: { top: 'never', bottom: 'never' },
     },
   },
 )
@@ -68,12 +80,16 @@ const SupportStack = createStackNavigator(
       headerTitleStyle: {
         color: COLOR_PRIMARY,
       },
+      headerStyle: {
+        backgroundColor: HEADER_COLOR_BACKGROUND,
+      },
       headerLeft: <MenuButton />,
       headerRight: <TrainButton />,
+      headerForceInset: { top: 'never', bottom: 'never' },
     },
   },
 )
-const App = createDrawerNavigator({
+const Main = createDrawerNavigator({
   Home: {
     screen: RootStack,
   },
@@ -84,5 +100,19 @@ const App = createDrawerNavigator({
     screen: SupportStack,
   },
 });
+
+
+const App = () => (
+  <SafeAreaView style={styles.safeArea}>
+    <Main />
+  </SafeAreaView>
+)
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: HEADER_COLOR_BACKGROUND,
+  },
+})
 
 export default App

@@ -5,3 +5,5 @@ export const COLOR_BORDER = 'rgba(23, 31, 61, .2)'
 export const COLOR_BACKGROUND = '#ffffff'
 
 export const BAR_STYLE = 'dark-content'
+
+export const HEADER_COLOR_BACKGROUND = '#f7f7f7'
